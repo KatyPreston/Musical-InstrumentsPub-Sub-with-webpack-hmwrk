@@ -5,9 +5,12 @@ const InstrumentView = require("./views/instrument_view.js");
 document.addEventListener('DOMContentLoaded', () => {
   console.log('JavaScript Loaded');
   const selectElement = document.querySelector('select#instrument-families');
-  const FamilyDropdown = new SelectView(selectElement);
-  FamilyDropdown.bindEvents();
+  const familyDropdown = new SelectView(selectElement);
+  familyDropdown.bindEvents();
 
+  const display = document.querySelector("div#display-info");
+  const familyInfoDisplay = new InstrumentView(display);
+  familyInfoDisplay.bindEvents();
 
   const instrumentDataSource = new InstrumentFamilies();
   instrumentDataSource.bindEvents();
